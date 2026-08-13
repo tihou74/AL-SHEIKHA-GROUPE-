@@ -3,211 +3,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مجموعة الشيخة | Al Sheikha Group</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>الشيخة قروب لإدارة المطاعم | Al Sheikha Restaurants Management</title>
+    <!-- خط تجوال الحديث من جوجل -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-dark: #0f0f11;
+            --bg-card: #18181c;
+            --gold-primary: #d4af37;
+            --gold-light: #f3e5ab;
+            --text-light: #f5f5f7;
+            --text-muted: #a1a1a6;
+            --border-gold: rgba(212, 175, 55, 0.3);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Cairo', sans-serif;
+            font-family: 'Tajawal', sans-serif;
         }
 
         body {
-            background-color: #0f1115;
-            color: #ffffff;
-            line-height: 1.6;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.7;
+            overflow-x: hidden;
         }
 
-        /* الهيدر وقائمة التنقل */
+        /* Header / Navigation */
         header {
-            background: rgba(15, 17, 21, 0.95);
-            padding: 20px 8%;
+            background-color: rgba(15, 15, 17, 0.95);
+            border-bottom: 1px solid var(--border-gold);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #d4af37;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            padding: 18px 24px;
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #d4af37;
-            letter-spacing: 1px;
-        }
-
-        nav a {
-            color: #e0e0e0;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--gold-primary);
             text-decoration: none;
-            margin-right: 20px;
-            font-weight: 600;
-            transition: color 0.3s;
+            letter-spacing: 0.5px;
         }
 
-        nav a:hover {
-            color: #d4af37;
-        }
-
-        /* القسم الرئيسي / البانر */
-        .hero {
-            height: 80vh;
+        .nav-links {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, rgba(15,17,21,1) 70%);
-        }
-
-        .hero h1 {
-            font-size: 3.2rem;
-            color: #d4af37;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            color: #cccccc;
-            max-width: 600px;
-            margin-bottom: 30px;
-        }
-
-        .btn-gold {
-            background-color: #d4af37;
-            color: #0f1115;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: transform 0.3s, background-color 0.3s;
-        }
-
-        .btn-gold:hover {
-            background-color: #f3e5ab;
-            transform: translateY(-3px);
-        }
-
-        /* قسم الخدمات والقطاعات */
-        .services {
-            padding: 80px 8%;
-            text-align: center;
-            background-color: #161920;
-        }
-
-        .section-title {
-            font-size: 2.2rem;
-            color: #d4af37;
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            list-style: none;
             gap: 30px;
         }
 
-        .card {
-            background-color: #0f1115;
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid #2a2d35;
-            transition: border-color 0.3s, transform 0.3s;
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
-        .card:hover {
-            border-color: #d4af37;
-            transform: translateY(-5px);
+        .nav-links a:hover {
+            color: var(--gold-primary);
         }
 
-        .card h3 {
-            color: #d4af37;
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-        }
-
-        .card p {
-            color: #aaaaaa;
-            font-size: 0.95rem;
-        }
-
-        /* قسم من نحن */
-        .about {
-            padding: 80px 8%;
+        /* Hero Section */
+        .hero {
+            padding: 160px 24px 100px;
             text-align: center;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, rgba(15, 15, 17, 1) 70%);
         }
 
-        .about p {
-            max-width: 800px;
+        .hero h1 {
+            font-size: 2.8rem;
+            color: var(--gold-primary);
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 750px;
+            margin: 0 auto 35px;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
+            color: #000;
+            padding: 14px 36px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Section Commons */
+        section {
+            padding: 90px 24px;
+            max-width: 1200px;
             margin: 0 auto;
-            font-size: 1.15rem;
-            color: #dddddd;
-            line-height: 1.8;
         }
 
-        /* الفوتر */
-        footer {
-            background-color: #090a0c;
+        .section-title {
             text-align: center;
-            padding: 25px;
-            border-top: 1px solid #2a2d35;
-            color: #777777;
+            font-size: 2.2rem;
+            color: var(--gold-primary);
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 50px;
+        }
+
+        /* About Section */
+        .about-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .about-box p {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            line-height: 2;
+        }
+
+        /* Brands / Restaurants Grid */
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .brand-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            padding: 35px;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-primary);
+        }
+
+        .brand-card h3 {
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            margin-bottom: 15px;
+        }
+
+        .brand-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: rgba(212, 175, 55, 0.15);
+            color: var(--gold-light);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #08080a;
+            border-top: 1px solid var(--border-gold);
+            text-align: center;
+            padding: 30px 24px;
+            color: var(--text-muted);
             font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.1rem; }
+            .section-title { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- الهيدر -->
+    <!-- الهيدر والقائمة -->
     <header>
-        <div class="logo">مجموعة الشيخة</div>
-        <nav>
-            <a href="#about">عن المجموعة</a>
-            <a href="#sectors">قطاعاتنا</a>
-            <a href="#contact">تواصل معنا</a>
-        </nav>
+        <div class="nav-container">
+            <a href="#" class="logo">الشيخة قروب لإدارة المطاعم</a>
+            <ul class="nav-links">
+                <li><a href="#about">عن المجموعة</a></li>
+                <li><a href="#brands">مطاعمنا</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+            </ul>
+        </div>
     </header>
 
-    <!-- واجهة الترحيب -->
-    <section class="hero">
-        <h1>مجموعة الشيخة</h1>
-        <p>الريادة والتميز في تقديم أرقى الخدمات والحلول المتكاملة لبناء مستقبل واعد.</p>
-        <a href="#contact" class="btn-gold">تواصل معنا</a>
-    </section>
+    <!-- واجهة الصفحة (Hero Section) -->
+    <div class="hero">
+        <h1>الشيخة قروب لإدارة المطاعم</h1>
+        <p>الأصالة، الفخامة، والتميز التشغيلي في إدارة وتطوير أرقى العلامات التجاريه لقطاع الضيافة والمطاعم.</p>
+        <a href="#brands" class="btn-gold">استكشف مطاعمنا</a>
+    </div>
 
-    <!-- قسم من نحن -->
-    <section class="about" id="about">
+    <!-- قسم عن المجموعة -->
+    <section id="about">
         <h2 class="section-title">عن المجموعة</h2>
-        <p>تسعى مجموعة الشيخة إلى تقديم أعلى مستويات الجودة والابتكار في مختلف القطاعات التجارية والاستثمارية. نحن نلتزم بالتميز والاحترافية لتلبية تطلعات عملاؤنا وتطوير الشراكات الناجحة.</p>
+        <p class="section-subtitle">رواد إدارة وتطوير مطاعم الضيافة الفاخرة</p>
+        <div class="about-box">
+            <p>
+                تسعى <strong>الشيخة قروب لإدارة المطاعم</strong> إلى تقديم أعلى مستويات الجودة والابتكار في قطاع الضيافة والمأكولات. 
+                نحن نلتزم بالتميز والاحترافية في تقديم تجارب طهوية تجمع بين عراقة التراث الخليجي وأرقى معايير التشغيل العالمية، 
+                لتلبية تطلعات عملائنا وتطوير العلامات التجارية الرائدة تحت مظلتنا.
+            </p>
+        </div>
     </section>
 
-    <!-- قسم قطاعات العمل -->
-    <section class="services" id="sectors">
-        <h2 class="section-title">قطاعات العمل</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>التجارة والاستثمار</h3>
-                <p>إدارة واستثمار المشاريع الواعدة وفق أحدث معايير الجودة والنمو المستدام.</p>
+    <!-- قسم العلامات التجارية والمطاعم -->
+    <section id="brands">
+        <h2 class="section-title">علاماتنا التجارية</h2>
+        <p class="section-subtitle">المطاعم والمفاهيم التابعة لمجموعة الشيخة</p>
+        
+        <div class="brands-grid">
+            <!-- مطعم قيمر وكاهي -->
+            <div class="brand-card">
+                <h3>مطعم قيمر وكاهي</h3>
+                <span class="tag">Gaimer W Kahi</span>
+                <p style="margin-top: 15px;">التجربة الأرقى للإفطار والعصرونية، المتخصص في تقديم القيمر العراقي الفاخر والكاهي والحلويات والمأكولات الشرقية المتميزة.</p>
             </div>
-            <div class="card">
-                <h3>الخدمات والضيافة</h3>
-                <p>تقديم تجارب فريدة وخدمات راقية تعكس أصالة وفخامة العلامة التجارية.</p>
-            </div>
-            <div class="card">
-                <h3>التطوير والابتكار</h3>
-                <p>صناعة فرَص جديدة وتطبيق أفكار مبتكرة لتوسيع نطاق الأعمال بنجاح.</p>
+
+            <!-- مطعم شاي بو حمد -->
+            <div class="brand-card">
+                <h3>مطعم شاي بو حمد</h3>
+                <span class="tag">Shai Bu Hamad</span>
+                <p style="margin-top: 15px;">رمز الأصالة والضيافة الخليجية، يقدم أشهى الوجبات التقليدية والشاي المخدر والمشروبات العريقة بأجواء تراثية دافئة.</p>
             </div>
         </div>
     </section>
 
+    <!-- قسم التواصل -->
+    <section id="contact">
+        <h2 class="section-title">تواصل معنا</h2>
+        <p class="section-subtitle">نرحب بجميع الاستفسارات والشراكات التجارية</p>
+        <div class="about-box">
+            <p style="margin-bottom: 20px;">الشيخة قروب لإدارة المطاعم - إدارة الضيافة والتطوير</p>
+            <a href="mailto:info@alsheikhagroup.com" class="btn-gold">تواصل عبر البريد الإلكتروني</a>
+        </div>
+    </section>
+
     <!-- الفوتر -->
-    <footer id="contact">
-        <p>جميع الحقوق محفوظة © 2026 لمجموعة الشيخة</p>
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2026 الشيخة قروب لإدارة المطاعم (Al Sheikha Restaurants Management Group)</p>
     </footer>
 
 </body>
