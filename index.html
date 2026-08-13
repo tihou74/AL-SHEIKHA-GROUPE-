@@ -2,30 +2,213 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>موقعي الأول</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مجموعة الشيخة | Al Sheikha Group</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
         body {
-            font-family: sans-serif;
-            background-color: #f0f4f8;
+            background-color: #0f1115;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* الهيدر وقائمة التنقل */
+        header {
+            background: rgba(15, 17, 21, 0.95);
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #d4af37;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #d4af37;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        /* القسم الرئيسي / البانر */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding-top: 100px;
+            padding: 0 20px;
+            background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, rgba(15,17,21,1) 70%);
         }
-        .box {
-            background: white;
+
+        .hero h1 {
+            font-size: 3.2rem;
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #cccccc;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .btn-gold {
+            background-color: #d4af37;
+            color: #0f1115;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .btn-gold:hover {
+            background-color: #f3e5ab;
+            transform: translateY(-3px);
+        }
+
+        /* قسم الخدمات والقطاعات */
+        .services {
+            padding: 80px 8%;
+            text-align: center;
+            background-color: #161920;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: #d4af37;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: #0f1115;
             padding: 30px;
-            display: inline-block;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            border: 1px solid #2a2d35;
+            transition: border-color 0.3s, transform 0.3s;
         }
-        h1 { color: #007bff; }
+
+        .card:hover {
+            border-color: #d4af37;
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #d4af37;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .card p {
+            color: #aaaaaa;
+            font-size: 0.95rem;
+        }
+
+        /* قسم من نحن */
+        .about {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+            color: #dddddd;
+            line-height: 1.8;
+        }
+
+        /* الفوتر */
+        footer {
+            background-color: #090a0c;
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid #2a2d35;
+            color: #777777;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
 
-    <div class="box">
-        <h1>أهلاً بك في موقعي!</h1>
-        <p>هذه أول صفحة ويب أنشئها بنفسي.</p>
-    </div>
+    <!-- الهيدر -->
+    <header>
+        <div class="logo">مجموعة الشيخة</div>
+        <nav>
+            <a href="#about">عن المجموعة</a>
+            <a href="#sectors">قطاعاتنا</a>
+            <a href="#contact">تواصل معنا</a>
+        </nav>
+    </header>
+
+    <!-- واجهة الترحيب -->
+    <section class="hero">
+        <h1>مجموعة الشيخة</h1>
+        <p>الريادة والتميز في تقديم أرقى الخدمات والحلول المتكاملة لبناء مستقبل واعد.</p>
+        <a href="#contact" class="btn-gold">تواصل معنا</a>
+    </section>
+
+    <!-- قسم من نحن -->
+    <section class="about" id="about">
+        <h2 class="section-title">عن المجموعة</h2>
+        <p>تسعى مجموعة الشيخة إلى تقديم أعلى مستويات الجودة والابتكار في مختلف القطاعات التجارية والاستثمارية. نحن نلتزم بالتميز والاحترافية لتلبية تطلعات عملاؤنا وتطوير الشراكات الناجحة.</p>
+    </section>
+
+    <!-- قسم قطاعات العمل -->
+    <section class="services" id="sectors">
+        <h2 class="section-title">قطاعات العمل</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>التجارة والاستثمار</h3>
+                <p>إدارة واستثمار المشاريع الواعدة وفق أحدث معايير الجودة والنمو المستدام.</p>
+            </div>
+            <div class="card">
+                <h3>الخدمات والضيافة</h3>
+                <p>تقديم تجارب فريدة وخدمات راقية تعكس أصالة وفخامة العلامة التجارية.</p>
+            </div>
+            <div class="card">
+                <h3>التطوير والابتكار</h3>
+                <p>صناعة فرَص جديدة وتطبيق أفكار مبتكرة لتوسيع نطاق الأعمال بنجاح.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer id="contact">
+        <p>جميع الحقوق محفوظة © 2026 لمجموعة الشيخة</p>
+    </footer>
 
 </body>
 </html>
