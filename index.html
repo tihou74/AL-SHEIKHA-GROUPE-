@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الشيخة قروب لإدارة المطاعم | Al Sheikha Restaurants Management</title>
+    <title>الشيخة قروب لإدارة المطاعم | Al Sheikha Group</title>
     <!-- خط تجوال الحديث من جوجل -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #F5F5DC;
-            --bg-card: #18181c;
-            --gold-primary: #d4af37;
-            --gold-light: #f3e5ab;
-            --text-light: #f5f5f7;
-            --text-muted: #a1a1a6;
-            --border-gold: rgba(212, 175, 55, 0.3);
+            --bg-light: #FDFBF7;
+            --bg-card: #FFFFFF;
+            --beige-warm: #F4EFE6;
+            --gold-sheikha: #C5A059;
+            --brown-shai: #5A3E2B;
+            --red-gaimer: #A61C1C;
+            --text-dark: #2B2B2B;
+            --text-muted: #666666;
+            --border-beige: #E6DFD3;
         }
 
         * {
@@ -25,16 +27,16 @@
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            line-height: 1.7;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.8;
             overflow-x: hidden;
         }
 
         /* Header / Navigation */
         header {
-            background-color: rgba(15, 15, 17, 0.95);
-            border-bottom: 1px solid var(--border-gold);
+            background-color: rgba(253, 251, 247, 0.95);
+            border-bottom: 1px solid var(--border-beige);
             position: fixed;
             top: 0;
             width: 100%;
@@ -48,15 +50,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 24px;
+            padding: 12px 24px;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--gold-primary);
-            text-decoration: none;
-            letter-spacing: 0.5px;
+        .logo img {
+            height: 55px;
+            width: auto;
+            display: block;
         }
 
         .nav-links {
@@ -66,27 +66,33 @@
         }
 
         .nav-links a {
-            color: var(--text-light);
+            color: var(--text-dark);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--gold-primary);
+            color: var(--gold-sheikha);
         }
 
         /* Hero Section */
         .hero {
-            padding: 160px 24px 100px;
+            padding: 170px 24px 100px;
             text-align: center;
-            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, rgba(15, 15, 17, 1) 70%);
+            background: linear-gradient(180deg, var(--beige-warm) 0%, var(--bg-light) 100%);
+        }
+
+        .hero-logo-main {
+            max-width: 180px;
+            height: auto;
+            margin-bottom: 25px;
         }
 
         .hero h1 {
-            font-size: 2.8rem;
-            color: var(--gold-primary);
-            margin-bottom: 20px;
+            font-size: 2.6rem;
+            color: var(--brown-shai);
+            margin-bottom: 15px;
             font-weight: 800;
         }
 
@@ -99,18 +105,18 @@
 
         .btn-gold {
             display: inline-block;
-            background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
-            color: #000;
-            padding: 14px 36px;
+            background-color: var(--gold-sheikha);
+            color: #FFFFFF;
+            padding: 14px 38px;
             border-radius: 6px;
             font-weight: 700;
             text-decoration: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .btn-gold:hover {
+            background-color: var(--brown-shai);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
         }
 
         /* Section Commons */
@@ -123,87 +129,125 @@
         .section-title {
             text-align: center;
             font-size: 2.2rem;
-            color: var(--gold-primary);
-            margin-bottom: 15px;
-            position: relative;
+            color: var(--brown-shai);
+            margin-bottom: 10px;
+            font-weight: 800;
         }
 
         .section-subtitle {
             text-align: center;
-            color: var(--text-muted);
+            color: var(--gold-sheikha);
             margin-bottom: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
         }
 
         /* About Section */
         .about-box {
             background-color: var(--bg-card);
-            border: 1px solid var(--border-gold);
+            border: 1px solid var(--border-beige);
             border-radius: 12px;
-            padding: 40px;
+            padding: 45px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
         }
 
         .about-box p {
             font-size: 1.15rem;
-            color: var(--text-light);
+            color: var(--text-dark);
             line-height: 2;
         }
 
-        /* Brands / Restaurants Grid */
+        /* Brands Grid */
         .brands-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 35px;
         }
 
         .brand-card {
             background-color: var(--bg-card);
-            border: 1px solid var(--border-gold);
-            border-radius: 12px;
-            padding: 35px;
+            border: 1px solid var(--border-beige);
+            border-radius: 16px;
+            padding: 40px 30px;
             text-align: center;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .brand-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold-primary);
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(197, 160, 89, 0.15);
+            border-color: var(--gold-sheikha);
+        }
+
+        /* حاوية صور اللوقوهات داخل البطاقات */
+        .brand-logo-container {
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        /* كارت قيمر وكاهي بخلفية داكنة للوجو الأبيض */
+        .brand-card.gaimer-card .brand-logo-container {
+            background-color: #1A1A1A;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .brand-logo-container img {
+            max-height: 100%;
+            max-width: 80%;
+            object-fit: contain;
         }
 
         .brand-card h3 {
-            font-size: 1.6rem;
-            color: var(--gold-primary);
-            margin-bottom: 15px;
+            font-size: 1.5rem;
+            color: var(--brown-shai);
+            margin-bottom: 10px;
         }
 
         .brand-card p {
             color: var(--text-muted);
-            font-size: 1rem;
-            margin-bottom: 20px;
+            font-size: 0.98rem;
+            margin-top: 15px;
         }
 
-        .tag {
-            display: inline-block;
-            background-color: rgba(212, 175, 55, 0.15);
-            color: var(--gold-light);
-            padding: 5px 15px;
+        .tag-gaimer {
+            background-color: rgba(166, 28, 28, 0.1);
+            color: var(--red-gaimer);
+            padding: 4px 14px;
             border-radius: 20px;
             font-size: 0.85rem;
-            font-weight: 600;
+            font-weight: 700;
+        }
+
+        .tag-shai {
+            background-color: rgba(90, 62, 43, 0.1);
+            color: var(--brown-shai);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
         }
 
         /* Footer */
         footer {
-            background-color: #08080a;
-            border-top: 1px solid var(--border-gold);
+            background-color: var(--beige-warm);
+            border-top: 1px solid var(--border-beige);
             text-align: center;
             padding: 30px 24px;
             color: var(--text-muted);
             font-size: 0.9rem;
         }
 
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hero h1 { font-size: 2.1rem; }
@@ -216,7 +260,9 @@
     <!-- الهيدر والقائمة -->
     <header>
         <div class="nav-container">
-            <a href="#"     <img src="SS GROUP LOGO@4x.png" alt="الشيخة قروب لإدارة المطاعم" style="height: 50px; width: auto; vertical-align: middle;">
+            <a href="#" class="logo">
+                <img src="SS GROUP LOGO@4x.png" alt="الشيخة قروب لإدارة المطاعم">
+            </a>
             <ul class="nav-links">
                 <li><a href="#about">عن المجموعة</a></li>
                 <li><a href="#brands">مطاعمنا</a></li>
@@ -225,10 +271,11 @@
         </div>
     </header>
 
-    <!-- واجهة الصفحة (Hero Section) -->
+    <!-- واجهة الصفحة الرئيسية (Hero) -->
     <div class="hero">
-        <h1>الشيخة ستايل لادارة المطاعم </h1>
-        <p>الأصالة، الفخامة، والتميز التشغيلي في إدارة وتطوير أرقى العلامات التجاريه لقطاع الضيافة والمطاعم.</p>
+        <img src="SS GROUP LOGO@4x.png" alt="شعار الشيخة قروب" class="hero-logo-main">
+        <h1>الشيخة قروب لإدارة المطاعم</h1>
+        <p>الأصالة، الفخامة، والتميز التشغيلي في إدارة وتطوير أرقى العلامات التجارية لقطاع الضيافة والمطاعم.</p>
         <a href="#brands" class="btn-gold">استكشف مطاعمنا</a>
     </div>
 
@@ -251,19 +298,27 @@
         <p class="section-subtitle">المطاعم والمفاهيم التابعة لمجموعة الشيخة</p>
         
         <div class="brands-grid">
+            
             <!-- مطعم قيمر وكاهي -->
-            <div class="brand-card">
+            <div class="brand-card gaimer-card">
+                <div class="brand-logo-container">
+                    <img src="logo GWK-2.jpg" alt="لوجو قيمر وكاهي">
+                </div>
                 <h3>مطعم قيمر وكاهي</h3>
-                <span class="tag">Gaimer W Kahi</span>
-                <p style="margin-top: 15px;">التجربة الأرقى للإفطار والعصرونية، المتخصص في تقديم القيمر العراقي الفاخر والكاهي والحلويات والمأكولات الشرقية المتميزة.</p>
+                <span class="tag-gaimer">GAIMER W KAHI</span>
+                <p>التجربة الأرقى للإفطار والعصرونية، المتخصص في تقديم القيمر العراقي الفاخر والكاهي والحلويات والمأكولات الشرقية المتميزة.</p>
             </div>
 
             <!-- مطعم شاي بو حمد -->
             <div class="brand-card">
+                <div class="brand-logo-container">
+                    <img src="SHAI BU HAMAD LOGO@4x.png" alt="لوجو شاي بو حمد">
+                </div>
                 <h3>مطعم شاي بو حمد</h3>
-                <span class="tag">Shai Bu Hamad</span>
-                <p style="margin-top: 15px;">رمز الأصالة والضيافة الخليجية، يقدم أشهى الوجبات التقليدية والشاي المخدر والمشروبات العريقة بأجواء تراثية دافئة.</p>
+                <span class="tag-shai">SHAI BU HAMAD</span>
+                <p>رمز الأصالة والضيافة الخليجية، يقدم أشهى الوجبات التقليدية والشاي المخدر والمشروبات العريقة بأجواء تراثية دافئة.</p>
             </div>
+
         </div>
     </section>
 
@@ -272,7 +327,7 @@
         <h2 class="section-title">تواصل معنا</h2>
         <p class="section-subtitle">نرحب بجميع الاستفسارات والشراكات التجارية</p>
         <div class="about-box">
-            <p style="margin-bottom: 20px;">الشيخة قروب لإدارة المطاعم - إدارة الضيافة والتطوير</p>
+            <p style="margin-bottom: 20px; font-weight: 600;">الشيخة قروب لإدارة المطاعم - إدارة الضيافة والتطوير</p>
             <a href="mailto:info@alsheikhagroup.com" class="btn-gold">تواصل عبر البريد الإلكتروني</a>
         </div>
     </section>
