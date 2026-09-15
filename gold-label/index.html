@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الشيخة ستايل GOLD — استوديو اللِيبل</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cinzel:wght@400..900&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=El+Messiri:wght@400..700&family=Gulzar&family=Italiana&family=Jost:wght@200..500&family=Marcellus&family=Mirza:wght@400;600&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Prata&family=Reem+Kufi:wght@400..700&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   الشيخة ستايل — GOLD label
+   لِيبل عبايات: اسم عربي + إطار لامع + كلمة GOLD بذهب معدني + MADE IN QATAR
+   ========================================================================== */
+
+:root{
+  --bg: #FAF6EE;              /* أوف وايت */
+  --ar-scale: 0.80;           /* حجم الاسم العربي */
+  --gold-flat: #A9884E;       /* لون MADE IN QATAR */
+  --frame-glow: rgba(198,158,74,.42);
+
+  /* تدرّج الإطار الذهبي اللامع */
+  --frame-grad: linear-gradient(100deg,
+      #8A6522 0%, #C79A45 12%, #F1DCA2 22%, #FFF7DC 30%,
+      #DCBE73 38%, #A9793A 50%, #8A6522 58%,
+      #E7CD90 74%, #FFF7DC 82%, #C79A45 92%, #8A6522 100%);
+}
+
+/* ============ 1) تدرّجات الذهب (٣ أنماط) ============ */
+/* g1 = معدني ناعم راقي | g2 = لمعة قوية | g3 = ذهب عتيق مطفي */
+.g1{
+  --metal: linear-gradient(178deg,
+      #7A5620 0%, #A87B33 9%, #DEBE79 19%, #F7E6B4 27%,
+      #FFF9E3 33%, #EBD394 40%, #C89B47 50%,
+      #9C6F28 60%, #8A5F20 67%, #C0913F 78%,
+      #EBD69E 88%, #FFF4CE 94%, #8E6524 100%);
+  --sheen: rgba(255,255,255,.50);
+}
+.g2{
+  --metal: linear-gradient(176deg,
+      #6B4712 0%, #B98C33 7%, #FFF6CF 16%, #E4C46C 23%,
+      #FFFDF0 31%, #D9B155 38%, #F6E7A8 45%,
+      #A97B2A 54%, #7C5417 62%, #D5AC4E 72%,
+      #FFF8D9 82%, #C1913A 90%, #7E5716 100%);
+  --sheen: rgba(255,255,255,.78);
+}
+.g3{
+  --metal: linear-gradient(180deg,
+      #7C6231 0%, #9E8047 14%, #C6AC74 28%, #DCC694 38%,
+      #C2A567 50%, #A28449 62%, #8A6C34 74%,
+      #B49A62 88%, #8E7539 100%);
+  --sheen: rgba(255,255,255,.28);
+}
+
+[hidden]{ display:none !important; }
+
+/* ============ 2) اللِيبل ============ */
+.label{
+  width:1600px; height:640px; box-sizing:border-box;
+  background: var(--bg);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  font-kerning:normal; -webkit-font-smoothing:antialiased;
+  position:relative; overflow:hidden;
+}
+.label.transparent{ background:transparent; }
+
+/* الاسم العربي */
+.ar{
+  font-family:'Aref Ruqaa', serif; font-weight:700;
+  font-size: calc(267px * var(--ar-scale));
+  line-height: 1.05;
+  direction:rtl;
+  background-image: linear-gradient(180deg,#A8792F 0%,#D7B269 22%,#F3E3B4 40%,#D9B76E 58%,#B98F3F 78%,#8F6828 100%);
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:transparent;
+  filter: drop-shadow(0 1px 1px rgba(120,85,20,.16));
+  padding: 0 .08em .12em;
+  margin-bottom: calc(4px + 16px * var(--ar-scale));
+}
+.ar-img{
+  display:block; height: calc(215px * var(--ar-scale)); width:auto;
+  margin-bottom: calc(4px + 16px * var(--ar-scale));
+}
+.ar-img.knockout{ mix-blend-mode: multiply; }
+
+/* الإطار اللامع */
+.frame{
+  position:relative;
+  border:4px solid transparent;
+  border-image: var(--frame-grad) 1;
+  padding: 8px 58px 16px;
+  filter: drop-shadow(0 1px 1px rgba(150,112,40,.28));
+  isolation:isolate;
+}
+.frame.double::before{
+  content:''; position:absolute; inset:7px;
+  border:1.5px solid rgba(178,140,72,.9);
+  pointer-events:none;
+}
+.frame.simple{ filter: drop-shadow(0 1px 2px rgba(150,112,40,.22)); }
+.frame.none{ border-color:transparent; border-image:none; filter:none; padding:6px 10px; }
+.frame.none::before{ display:none; }
+
+/* على الخلفية السوداء نضيف وهجاً ذهبياً */
+.label.dark .frame{
+  filter: drop-shadow(0 0 10px rgba(232,198,116,.45)) drop-shadow(0 0 26px rgba(214,170,80,.30));
+}
+.label.dark .gold{
+  filter: drop-shadow(0 0 8px rgba(255,226,150,.40)) drop-shadow(0 1px 1px rgba(0,0,0,.45));
+}
+.label.dark .ar{ filter: drop-shadow(0 0 10px rgba(226,190,110,.28)); }
+
+/* لمعة تمرّ على الإطار */
+.frame::after{
+  content:''; position:absolute; inset:-3px; pointer-events:none;
+  background: linear-gradient(105deg, rgba(255,255,255,0) 40%, rgba(255,255,255,.55) 48%, rgba(255,255,255,0) 56%);
+  background-size: 260% 100%; background-position: -70% 0;
+  mix-blend-mode: soft-light; opacity:0;
+}
+.shine .frame::after{ opacity:1; animation: sweepX 4.2s ease-in-out infinite; }
+.frame.none::after{ display:none; }
+
+/* كلمة GOLD */
+.gold{
+  font-family:'Bodoni Moda', serif; font-style:italic; font-weight:700;
+  font-size:112px; line-height:1.20; letter-spacing:.14em;
+  padding-inline-start:.14em;             /* تعويض المسافة الأخيرة */
+  background-image:
+     linear-gradient(105deg, rgba(255,255,255,0) 38%, var(--sheen) 47%, rgba(255,255,255,0) 56%),
+     var(--metal);
+  background-size: 320% 100%, 100% 100%;
+  background-position: 18% 0, 0 0;
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:transparent;
+  filter: drop-shadow(0 1px 1px rgba(110,78,20,.34));
+  display:block;
+}
+.shine .gold{ animation: sweepText 4.2s ease-in-out infinite; }
+@keyframes sweepText{
+  0%   { background-position:-75% 0, 0 0; }
+  60%,100%{ background-position: 175% 0, 0 0; }
+}
+@keyframes sweepX{
+  0%   { background-position:-75% 0; }
+  60%,100%{ background-position: 175% 0; }
+}
+
+/* MADE IN QATAR */
+.made{
+  font-family:'Jost', sans-serif; font-weight:300;
+  font-size:42px; letter-spacing:.34em; padding-inline-start:.34em;
+  color: var(--gold-flat);
+  margin-top: 26px; direction:ltr;
+}
+
+/* ============ 3) خطوط GOLD البديلة ============ */
+.f-bodoni      .gold{ font-family:'Bodoni Moda',serif; font-style:italic; font-weight:700; letter-spacing:.14em; }
+.f-bodoni-up   .gold{ font-family:'Bodoni Moda',serif; font-style:normal; font-weight:600; letter-spacing:.22em; }
+.f-cormorant   .gold{ font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:600; letter-spacing:.12em; font-size:130px; }
+.f-playfair    .gold{ font-family:'Playfair Display',serif; font-style:italic; font-weight:600; letter-spacing:.10em; }
+.f-cinzel      .gold{ font-family:'Cinzel',serif; font-weight:600; letter-spacing:.24em; font-size:100px; }
+.f-italiana    .gold{ font-family:'Italiana',serif; font-weight:400; letter-spacing:.30em; font-size:114px; }
+.f-marcellus   .gold{ font-family:'Marcellus',serif; font-weight:400; letter-spacing:.22em; font-size:108px; }
+.f-prata       .gold{ font-family:'Prata',serif; font-weight:400; letter-spacing:.16em; font-size:100px; }
+
+/* ============ 4) خطوط الاسم العربي ============ */
+.a-ruqaa   .ar{ font-family:'Aref Ruqaa',serif; font-weight:700; font-size:calc(267px*var(--ar-scale)); }
+.a-amiri   .ar{ font-family:'Amiri',serif; font-weight:700; font-size:calc(225px*var(--ar-scale)); }
+.a-gulzar  .ar{ font-family:'Gulzar',serif; font-weight:400; font-size:calc(271px*var(--ar-scale)); }
+.a-mirza   .ar{ font-family:'Mirza',serif; font-weight:600; font-size:calc(209px*var(--ar-scale)); }
+.a-messiri .ar{ font-family:'El Messiri',sans-serif; font-weight:600; font-size:calc(163px*var(--ar-scale)); }
+.a-reem    .ar{ font-family:'Reem Kufi',sans-serif; font-weight:500; font-size:calc(215px*var(--ar-scale)); }
+
+/* ============ 5) واجهة الاستوديو ============ */
+*{ box-sizing:border-box; }
+body{
+  margin:0; background:#15130F; color:#EBE3D2;
+  font-family:'El Messiri',system-ui,'Segoe UI',sans-serif;
+}
+header{ padding:22px 26px 10px; text-align:center; }
+header h1{ margin:0; font-size:26px; color:#E6CE95; font-weight:600; }
+header p{ margin:6px 0 0; font-size:15px; opacity:.72; }
+
+.stage{
+  display:flex; justify-content:center; padding:18px 10px 6px;
+}
+.stage-inner{
+  width:1600px; height:640px; transform-origin: top center;
+  box-shadow: 0 22px 60px rgba(0,0,0,.55);
+}
+.checker{
+  background-image:
+    linear-gradient(45deg,#3a352c 25%,transparent 25%,transparent 75%,#3a352c 75%),
+    linear-gradient(45deg,#3a352c 25%,transparent 25%,transparent 75%,#3a352c 75%);
+  background-size:28px 28px; background-position:0 0,14px 14px; background-color:#2a2620;
+}
+
+.panel{
+  max-width:1080px; margin:14px auto 60px; padding:20px;
+  background:#1E1B15; border:1px solid #3A3327; border-radius:14px;
+}
+.grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+label.fld{ display:block; font-size:14px; }
+label.fld span{ display:block; margin-bottom:6px; color:#D9C79A; }
+select,input[type=range],input[type=file],input[type=color]{
+  width:100%; padding:9px 10px; border-radius:9px;
+  background:#12100C; color:#EBE3D2; border:1px solid #4A412F; font-family:inherit; font-size:14px;
+}
+input[type=range]{ padding:0; height:34px; }
+.row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; align-items:center; }
+button{
+  padding:11px 18px; border-radius:10px; cursor:pointer; font-family:inherit; font-size:15px;
+  background:linear-gradient(180deg,#E4CB90,#B78F45); color:#221B08; border:0; font-weight:600;
+}
+button.ghost{ background:transparent; color:#D9C79A; border:1px solid #5A4E36; }
+.chk{ display:flex; align-items:center; gap:8px; font-size:14px; color:#D9C79A; }
+.chk input{ width:18px; height:18px; }
+.note{ font-size:13px; opacity:.65; margin-top:14px; line-height:1.9; }
+.hint{ background:#251F14; border:1px solid #4A3F27; border-radius:10px; padding:12px 14px; font-size:13.5px; line-height:1.9; color:#E0D3AE; margin-top:16px; }
+
+/* وضع اللقطة النظيفة: ?plain=1 */
+body.plain{ background:transparent; margin:0; }
+body.plain header,body.plain .panel,body.plain .stage{ display:none; }
+body.plain .plain-holder{ display:block; }
+.plain-holder{ display:none; }
+
+/* ورقة المقارنة: ?sheet=1 */
+body.sheet{ background:#FAF6EE; }
+body.sheet header,body.sheet .panel,body.sheet .stage{ display:none; }
+.sheet-wrap{ display:none; }
+body.sheet .sheet-wrap{ display:block; width:1240px; padding:30px 0 20px; direction:ltr; }
+.sheet-item{ width:1240px; height:497px; overflow:hidden; margin:0 auto; direction:ltr; }
+.sheet-scale{ width:1600px; transform:scale(.775); transform-origin:top left; }
+.sheet-cap{
+  font-family:'El Messiri',sans-serif; font-size:30px; color:#7A6533; text-align:center;
+  padding:0 0 30px; direction:rtl; font-weight:600;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>استوديو لِيبل «الشيخة ستايل GOLD»</h1>
+  <p>اختر خط كلمة GOLD ونوع لمعة الذهب، وصغّر الاسم العربي كما تحب — ثم حمّل الصورة بدقة عالية.</p>
+</header>
+
+<div class="stage">
+  <div class="stage-inner" id="stage">
+    <!-- ===== اللِيبل ===== -->
+    <div class="label g1 f-cormorant a-ruqaa shine" id="label">
+      <div class="ar" id="arText">الشيخة ستايل</div>
+      <img class="ar-img" id="arImg" alt="" hidden>
+      <div class="frame double" id="frame">
+        <span class="gold" id="goldWord">GOLD</span>
+      </div>
+      <div class="made" id="made">MADE IN QATAR</div>
+    </div>
+  </div>
+</div>
+
+<div class="panel">
+  <div class="grid">
+    <label class="fld"><span>خط كلمة GOLD</span>
+      <select id="selGold">
+        <option value="f-cormorant">١ — كورمورانت مائل ★ الموصى به (ناعم راقي)</option>
+        <option value="f-cinzel">٢ — سينزل ★ حروف رومانية منقوشة</option>
+        <option value="f-italiana">٣ — إيتاليانا (رقيق جداً وراقي)</option>
+        <option value="f-playfair">٤ — بلاي فير مائل (كلاسيكي أنيق)</option>
+        <option value="f-marcellus">٥ — مارسيلوس (هادئ فخم)</option>
+        <option value="f-bodoni">٦ — بودوني مائل (ستايل مجلات الأزياء)</option>
+        <option value="f-bodoni-up">٧ — بودوني قائم (كلاسيكي محفور)</option>
+        <option value="f-prata">٨ — براتا (عريض كلاسيكي)</option>
+      </select>
+    </label>
+
+    <label class="fld"><span>لمعة الذهب</span>
+      <select id="selMetal">
+        <option value="g1">معدني ناعم — الأرقى</option>
+        <option value="g2">لمعة قوية — يلفت النظر</option>
+        <option value="g3">ذهب عتيق مطفي — فخامة هادئة</option>
+      </select>
+    </label>
+
+    <label class="fld"><span>الإطار</span>
+      <select id="selFrame">
+        <option value="double">مزدوج كلاسيكي (خط داخلي رفيع)</option>
+        <option value="simple">بسيط لامع</option>
+        <option value="none">بدون إطار</option>
+      </select>
+    </label>
+
+    <label class="fld"><span>الخلفية</span>
+      <select id="selBg">
+        <option value="#FAF6EE">أوف وايت (الموصى به)</option>
+        <option value="#F7F2E8">كريمي فاتح</option>
+        <option value="#F3EDE1">عاجي</option>
+        <option value="#0C0B0A">أسود</option>
+        <option value="transparent">شفاف (PNG للطباعة)</option>
+      </select>
+    </label>
+
+    <label class="fld"><span>خط الاسم العربي</span>
+      <select id="selAr">
+        <option value="a-ruqaa">عارف رقعة — كلاسيكي فخم</option>
+        <option value="a-mirza">ميرزا — انسيابي مائل</option>
+        <option value="a-gulzar">كُلزار — نستعليق فني</option>
+        <option value="a-amiri">أميري — نسخ كلاسيكي</option>
+        <option value="a-messiri">المصيري — عصري نظيف</option>
+        <option value="a-reem">ريم كوفي — هندسي</option>
+      </select>
+    </label>
+
+    <label class="fld"><span>حجم الاسم العربي — <b id="arVal">80%</b></span>
+      <input type="range" id="rngAr" min="55" max="115" step="1" value="80">
+    </label>
+
+    <label class="fld"><span>ارفع الاسم العربي الأصلي (PNG/JPG) — للحفاظ على خطك الحالي بالضبط</span>
+      <input type="file" id="fileAr" accept="image/*">
+    </label>
+
+    <label class="fld"><span>لون MADE IN QATAR</span>
+      <input type="color" id="colMade" value="#A9884E">
+    </label>
+  </div>
+
+  <div class="row">
+    <span class="chk"><input type="checkbox" id="chkShine" checked><label for="chkShine">لمعة متحركة (للعرض فقط)</label></span>
+    <span class="chk"><input type="checkbox" id="chkKnock"><label for="chkKnock">احذف الخلفية البيضاء من الصورة المرفوعة</label></span>
+    <span class="chk"><input type="checkbox" id="chkGrid"><label for="chkGrid">اظهر مربعات الشفافية</label></span>
+  </div>
+
+  <div class="row">
+    <button id="btn2">تحميل PNG (عادي)</button>
+    <button id="btn4">تحميل PNG دقة عالية ×4</button>
+    <button id="btn8">تحميل PNG للطباعة ×8</button>
+    <button class="ghost" id="btnReset">رجوع للإعدادات الافتراضية</button>
+  </div>
+
+  <div class="hint">
+    <b>ملاحظة مهمة عن الخط العربي:</b> «الشيخة ستايل» في لِيبلك الحالي مكتوبة بخط يد / كاليجرافي مخصص، وما أقدر أستخرجه من الصورة.
+    الخطوط أعلاه أقرب البدائل الراقية. إذا تحب تحافظ على شكل اسمك الحالي <b>بالضبط</b>، ارفع صورة الاسم العربي من الخيار
+    «ارفع الاسم العربي الأصلي» وحدّد «احذف الخلفية البيضاء» — وبيتركّب مع الإطار الجديد وكلمة GOLD الجديدة.
+  </div>
+
+  <div class="note">
+    للطباعة على تيكيت/ستيكر: استخدم «PNG للطباعة ×8» (يطلع بعرض ١٢٨٠٠ بكسل تقريباً) وبخلفية شفافة إذا القماش أو الورق ملوّن.
+  </div>
+</div>
+
+<!-- حاويات أوضاع اللقطات -->
+<div class="plain-holder" id="plainHolder"></div>
+<div class="sheet-wrap" id="sheetWrap"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.13/dist/html-to-image.min.js"></script>
+<script>
+(function(){
+  'use strict';
+
+  var qs      = new URLSearchParams(location.search);
+  var label   = document.getElementById('label');
+  var stage   = document.getElementById('stage');
+  var frame   = document.getElementById('frame');
+  var arText  = document.getElementById('arText');
+  var arImg   = document.getElementById('arImg');
+  var made    = document.getElementById('made');
+
+  var GOLD_FONTS = ['f-bodoni','f-bodoni-up','f-cormorant','f-playfair','f-cinzel','f-italiana','f-marcellus','f-prata'];
+  var GOLD_NAMES = {
+    'f-bodoni':'بودوني مائل — فخم (ستايل مجلات الأزياء)',
+    'f-bodoni-up':'بودوني قائم — كلاسيكي محفور',
+    'f-cormorant':'كورمورانت مائل — ناعم راقي',
+    'f-playfair':'بلاي فير مائل — كلاسيكي أنيق',
+    'f-cinzel':'سينزل — حروف رومانية منقوشة',
+    'f-italiana':'إيتاليانا — رقيق جداً وراقي',
+    'f-marcellus':'مارسيلوس — هادئ فخم',
+    'f-prata':'براتا — عريض كلاسيكي'
+  };
+  var AR_FONTS   = ['a-ruqaa','a-mirza','a-gulzar','a-amiri','a-messiri','a-reem'];
+  var METALS     = ['g1','g2','g3'];
+  var FRAMES     = ['double','simple','none'];
+
+  function setClassFromGroup(el, group, value){
+    group.forEach(function(c){ el.classList.remove(c); });
+    if (value) el.classList.add(value);
+  }
+
+  /* ---------- تطبيق الإعدادات ---------- */
+  function applyGold(v){ setClassFromGroup(label, GOLD_FONTS, v); }
+  function applyMetal(v){ setClassFromGroup(label, METALS, v); }
+  function applyAr(v){ setClassFromGroup(label, AR_FONTS, v); }
+  function applyFrame(v){ setClassFromGroup(frame, FRAMES, v); }
+  function applyBg(v){
+    if (v === 'transparent'){ label.classList.add('transparent'); }
+    else { label.classList.remove('transparent'); label.style.setProperty('--bg', v); }
+    var dark = (v === '#0C0B0A');
+    label.classList.toggle('dark', dark);
+    label.style.setProperty('--gold-flat', dark ? '#C6A464' : document.getElementById('colMade').value);
+  }
+  function applyArScale(pct){
+    label.style.setProperty('--ar-scale', (pct/100).toFixed(3));
+    var vEl = document.getElementById('arVal'); if (vEl) vEl.textContent = pct + '%';
+  }
+
+  /* ---------- التحجيم على الشاشة ---------- */
+  function fitStage(){
+    var avail = Math.min(window.innerWidth - 24, 1600);
+    var s = avail / 1600;
+    stage.style.transform = 'scale(' + s + ')';
+    stage.parentNode.style.height = (640 * s + 10) + 'px';
+  }
+  window.addEventListener('resize', fitStage);
+
+  /* ---------- التصدير ---------- */
+  function exportPng(scale){
+    var wasShine = label.classList.contains('shine');
+    label.classList.remove('shine');            // ثبّت اللمعة في مكان جميل
+    var transparent = label.classList.contains('transparent');
+    var opts = { pixelRatio: scale, width:1600, height:640, cacheBust:true };
+    if (!transparent) opts.backgroundColor = getComputedStyle(label).backgroundColor;
+    htmlToImage.toPng(label, opts).then(function(dataUrl){
+      var a = document.createElement('a');
+      a.download = 'alsheikha-style-gold-' + scale + 'x.png';
+      a.href = dataUrl; a.click();
+      if (wasShine) label.classList.add('shine');
+    }).catch(function(err){
+      if (wasShine) label.classList.add('shine');
+      alert('تعذر إنشاء الصورة: ' + err + '\nجرّب متصفح Chrome، أو خذ لقطة شاشة.');
+    });
+  }
+
+  /* ---------- الأحداث ---------- */
+  document.getElementById('selGold').onchange  = function(){ applyGold(this.value); };
+  document.getElementById('selMetal').onchange = function(){ applyMetal(this.value); };
+  document.getElementById('selAr').onchange    = function(){ applyAr(this.value); };
+  document.getElementById('selFrame').onchange = function(){ applyFrame(this.value); };
+  document.getElementById('selBg').onchange    = function(){ applyBg(this.value); };
+  document.getElementById('rngAr').oninput     = function(){ applyArScale(+this.value); };
+  document.getElementById('colMade').oninput   = function(){ label.style.setProperty('--gold-flat', this.value); };
+  document.getElementById('chkShine').onchange = function(){ label.classList.toggle('shine', this.checked); };
+  document.getElementById('chkGrid').onchange  = function(){ stage.classList.toggle('checker', this.checked); };
+  document.getElementById('chkKnock').onchange = function(){ arImg.classList.toggle('knockout', this.checked); };
+  document.getElementById('fileAr').onchange   = function(){
+    var f = this.files && this.files[0]; if (!f) return;
+    var r = new FileReader();
+    r.onload = function(e){ arImg.src = e.target.result; arImg.hidden = false; arText.style.display = 'none'; };
+    r.readAsDataURL(f);
+  };
+  document.getElementById('btn2').onclick = function(){ exportPng(2); };
+  document.getElementById('btn4').onclick = function(){ exportPng(4); };
+  document.getElementById('btn8').onclick = function(){ exportPng(8); };
+  document.getElementById('btnReset').onclick = function(){ location.href = location.pathname; };
+
+  /* ---------- أوضاع اللقطات (تُستخدم لتوليد الصور) ---------- */
+  function buildSheet(){
+    var wrap = document.getElementById('sheetWrap');
+    GOLD_FONTS.forEach(function(f){
+      var item = document.createElement('div'); item.className = 'sheet-item';
+      var scaler = document.createElement('div'); scaler.className = 'sheet-scale';
+      var clone = label.cloneNode(true);
+      clone.classList.remove('shine');
+      GOLD_FONTS.forEach(function(c){ clone.classList.remove(c); });
+      clone.classList.add(f);
+      clone.removeAttribute('id');
+      clone.querySelectorAll('[id]').forEach(function(n){ n.removeAttribute('id'); });
+      scaler.appendChild(clone);
+      var cap = document.createElement('div'); cap.className = 'sheet-cap'; cap.textContent = GOLD_NAMES[f];
+      item.appendChild(scaler);
+      wrap.appendChild(item); wrap.appendChild(cap);
+    });
+  }
+
+  /* ---------- بدء التشغيل ---------- */
+  var gold = qs.get('gold'), metal = qs.get('metal'), ar = qs.get('ar'),
+      frm  = qs.get('frame'), bg = qs.get('bg'), arsz = qs.get('arsize');
+
+  if (gold  && GOLD_FONTS.indexOf(gold) >= 0) { applyGold(gold);  document.getElementById('selGold').value  = gold; }
+  if (metal && METALS.indexOf(metal)     >= 0) { applyMetal(metal); document.getElementById('selMetal').value = metal; }
+  if (ar    && AR_FONTS.indexOf(ar)      >= 0) { applyAr(ar);      document.getElementById('selAr').value    = ar; }
+  if (frm   && FRAMES.indexOf(frm)       >= 0) { applyFrame(frm);  document.getElementById('selFrame').value = frm; }
+  if (bg){ applyBg(bg); document.getElementById('selBg').value = bg; }
+  if (arsz){ applyArScale(+arsz); document.getElementById('rngAr').value = +arsz; }
+
+  var zoomParam = parseFloat(qs.get('zoom'));
+  if (zoomParam > 0) document.documentElement.style.zoom = zoomParam;
+
+  if (qs.get('plain') === '1'){
+    document.body.classList.add('plain');
+    label.classList.remove('shine');
+    document.getElementById('plainHolder').appendChild(label);
+  } else if (qs.get('sheet') === '1'){
+    document.body.classList.add('sheet');
+    label.classList.remove('shine');
+    buildSheet();
+  } else {
+    fitStage();
+  }
+})();
+</script>
+</body>
+</html>
