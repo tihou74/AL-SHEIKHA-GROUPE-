@@ -26,6 +26,14 @@ FACES = [
     ('Italiana',           400, False, LAT_GOLD),
     ('Marcellus',          400, False, LAT_GOLD),
     ('Prata',              400, False, LAT_GOLD),
+    ('Gilda Display',      400, False, LAT_GOLD),
+    ('Forum',              400, False, LAT_GOLD),
+    ('Antic Didone',       400, False, LAT_GOLD),
+    ('Tenor Sans',         400, False, LAT_GOLD),
+    ('Bellefair',          400, False, LAT_GOLD),
+    ('EB Garamond',        600, True,  LAT_GOLD),
+    ('Pinyon Script',      400, False, LAT_GOLD),
+    ('Great Vibes',        400, False, LAT_GOLD),
     ('Jost',               300, False, LAT_MADE),
     ('Aref Ruqaa',         700, False, AR_TEXT),
     ('Amiri',              700, False, AR_TEXT),
@@ -33,6 +41,10 @@ FACES = [
     ('Mirza',              600, False, AR_TEXT),
     ('El Messiri',         600, False, AR_TEXT),
     ('Reem Kufi',          500, False, AR_TEXT),
+    ('Noto Nastaliq Urdu',  500, False, AR_TEXT),
+    ('Aref Ruqaa Ink',      700, False, AR_TEXT),
+    ('Rakkas',              400, False, AR_TEXT),
+    ('Katibeh',             400, False, AR_TEXT),
 ]
 
 UA = ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '

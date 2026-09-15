@@ -8,7 +8,7 @@ const errs = [];
 page.on('pageerror', e => errs.push('PAGEERROR ' + e.message));
 page.on('requestfailed', r => errs.push('REQFAIL ' + r.url().slice(0, 80)));
 
-await page.goto('file:///projects/sandbox/alsheikha-gold-label/index.html');
+await page.goto('file:///projects/sandbox/alsheikha-gold-label/index.html?glitter=gl-rough&gold=f-cinzel');
 await page.evaluate(() => document.fonts.ready);
 await page.waitForTimeout(1200);
 
