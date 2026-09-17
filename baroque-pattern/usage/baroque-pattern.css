@@ -1,0 +1,86 @@
+/* ---------------------------------------------------------------------------
+   Baroque acanthus pattern - ready-made classes
+   Adjust the path in --bq-dir if you move the patterns/ folder.
+   --------------------------------------------------------------------------- */
+
+:root {
+  --bq-dir: "../patterns";
+  --bq-tile: 400px;     /* one repeat; the artwork is drawn on a 400x400 tile */
+  --bq-color: #c8a24a;  /* only used by the tinted (mask) variants */
+  --bq-bg: #f2e8db;
+}
+
+/* --- full-bleed backgrounds ------------------------------------------------ */
+
+.bq-bg,
+.bq-bg--dark,
+.bq-bg--transparent {
+  background-repeat: repeat;
+  background-size: var(--bq-tile) var(--bq-tile);
+  background-position: center top;
+}
+
+.bq-bg            { background-image: url("../patterns/tile-gold.svg"); }
+.bq-bg--dark      { background-image: url("../patterns/tile-gold-dark.svg"); }
+/* keeps your own page colour behind the gilt ornament */
+.bq-bg--transparent {
+  background-color: var(--bq-bg);
+  background-image: url("../patterns/tile-gold-transparent.svg");
+}
+
+/* repeat size: the tile is vector, so any size stays sharp */
+.bq-sm  { --bq-tile: 220px; }
+.bq-md  { --bq-tile: 400px; }
+.bq-lg  { --bq-tile: 640px; }
+.bq-xl  { --bq-tile: 900px; }
+
+/* a subtle watermark rather than a statement wall */
+.bq-quiet { opacity: .28; }
+
+/* --- tint the ornament any colour ----------------------------------------- */
+/* Uses the flat silhouette as a mask, so the colour is yours to choose.
+   Supported in every current browser; -webkit- prefix kept for older Safari. */
+
+.bq-tint {
+  background-color: var(--bq-color);
+  -webkit-mask-image: url("../patterns/tile-solid-transparent.svg");
+          mask-image: url("../patterns/tile-solid-transparent.svg");
+  -webkit-mask-size: var(--bq-tile) var(--bq-tile);
+          mask-size: var(--bq-tile) var(--bq-tile);
+  -webkit-mask-repeat: repeat;
+          mask-repeat: repeat;
+}
+
+/* --- horizontal border strip ---------------------------------------------- */
+
+.bq-rule {
+  height: 132px;                     /* the strip's own height */
+  background-image: url("../patterns/border-gold.svg");
+  background-repeat: repeat-x;
+  background-size: auto 132px;
+  background-position: center;
+}
+.bq-rule--flip { transform: scaleY(-1); }   /* for the foot of a page */
+
+/* --- single ornaments ----------------------------------------------------- */
+
+.bq-corner {           /* one scroll, e.g. in the corner of a card */
+  width: 160px; aspect-ratio: 230 / 210;
+  background: url("../patterns/motif-gold.svg") center/contain no-repeat;
+}
+.bq-corner--tr { transform: scaleX(-1); }
+.bq-corner--bl { transform: scaleY(-1); }
+.bq-corner--br { transform: scale(-1, -1); }
+
+.bq-crest {            /* the mirrored spray, e.g. above a heading */
+  width: 260px; aspect-ratio: 260 / 210;
+  background: url("../patterns/palmette-gold.svg") center/contain no-repeat;
+}
+
+/* --- print ---------------------------------------------------------------- */
+@media print {
+  .bq-bg, .bq-bg--dark, .bq-bg--transparent {
+    -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+  }
+}
